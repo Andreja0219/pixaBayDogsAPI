@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>PixaBay Dogs</title>
+   
+    
+    <!-- Fonts via Google Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap" rel="stylesheet">
+
+    
+     
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Development version of VueJS -->
+    <script src="https://unpkg.com/vue@next"></script> 
+    <!-- Axios for making HTTP requests.  -->
+    <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+    <!-- NOTE: the below script has a "defer" attribute. It will load only when page is ready -->
+    <!-- Custom JS -->
+    <script defer src="script.js" ></script>
+</head>
+    <body >
+        <main id="app">  
+            
+                <div v-if="loading" id="loader">
+                    <!-- https://loading.io/  -->
+                    <img src="loader.svg"> 
+                </div>
+                
+                <!-- 
+                Using VueJS to loop over all dogs. 
+                Each one is represented by an image.
+                On click, VueJS opens opens the corresponding dog.
+                 -->
+                <nav id="dogs" v-if="dogs"> 
+                    <img v-for="(dog, dogKey) in dogs" :key="dog.id" class="menuItem"  @click="showDog(dogKey)"  :src="dog.webformatURL" > 
+                </nav>
+
+                <article id="dog"  v-if="dog">
+                    <div class="widgets creators">
+                        <div class="widgetpic"> 
+                            <img :src="dog.largeImageURL">        
+                        </div>
+                         <div class="widget"> 
+                            <img :src="dog.userImageURL">
+                            <div class="label">Contributed By</div>
+                            <div class="data">{{ dog.user }}</div>
+                            <br>
+                            <div class="label">Downloads</div>
+                            <div class="data">{{ dog.downloads }}</div>
+                            <br>
+                            <div class="label">Tags</div>
+                            <div class="data">{{ dog.tags }}</div>
+                    
+                        </div>
+                        
+                    </div> 
+
+                    <div id="credits">
+                        This page was created to demonstrate fetching and displaying data from an API. This page was programmed using a template created by <a href="https://nsitu.ca">Harold Sikkemma</a>. This page was created by <a href="https://andreja.ca">Andreja Morrison</a> in the context of Integrated Systems Design 2 in the <a href="https://ixd.sheridancollege.ca/program.html">Interaction Design</a> program at <a href="https://www.sheridancollege.ca/">Sheridan College.</a> Made with <a href="https://v3.vuejs.org/">Vue 3</a>. Data via the <a href="https://pixabay.com/api/docs/">PixaBay API</a>, fetched with <a href="https://axios-http.com/">Axios HTTP Client</a>. Cute Dog Logo via <a href="https://stock.adobe.com/ca/contributor/208545846/starwash?load_type=author&prev_url=detail">starwash</a> on <a href="https://stock.adobe.com">Adobe Stock</a>. Fonts via <a href="https://fonts.google.com/">Google Fonts</a>. 
+                    </div>
+     
+                </article>
+                <article id="welcome" v-if="!dog">
+                    <img src="dogLogo.svg" />
+                </article>
+            </section> 
+        </main>
+    </body>
+</html>

@@ -1,0 +1,137 @@
+body{ 
+    margin: 0; 
+    font-family: 'Shippori Antique B1', sans-serif;
+    background-image: url('back.svg');
+}
+* { box-sizing: border-box; }
+
+main { 
+    display: flex; 
+    flex-direction: column;
+    cursor: url('paw.svg'), auto;
+   
+}
+
+
+main nav { width: 100vw; }
+main article{ width: 100vw; }
+
+
+@media (max-width: 900px) { 
+    main { flex-direction: column; } 
+    main nav, main article { width: 100vw; }
+}
+
+nav{ 
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+    align-content: flex-start; 
+    
+} 
+
+/*Cursor Icon by <a href="https://freeicons.io/profile/5790">106171237606937156455</a> on <a href="https://freeicons.io">freeicons.io</a>*/
+    
+nav .menuItem{  
+    width: 5%;  
+    cursor: url('paw2.svg'), auto;
+} 
+@media (max-width: 900px) { nav .menuItem{   width: 14.2857%; }  }
+@media (max-width: 600px) { nav .menuItem{   width: 16.667%; }  }
+  
+
+#loader {  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw; 
+    height: 100vh;
+} 
+
+#welcome {  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50vw;
+    
+} 
+#welcome img{
+    width: 15%;
+}
+@media (max-width: 900px) { #welcome{   height: auto; }  }
+
+#dog .widgets{
+  
+    padding-top: 3rem;
+    margin: 1rem 5rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-flow: wrap;
+    text-align: center; 
+    gap: 1rem;  
+}
+
+#dog .widget{ 
+    border-radius: 2.5%;
+    padding: 3rem;
+    flex-grow: 1;
+}
+#dog .widget img{ 
+    border-radius: 7%;
+    width: 20%;;
+}
+#dog .widgetpic{  
+    padding: 3rem;
+    flex-grow: 1;
+    width: 50%;
+}
+#dog .widgetpic img{ 
+    border-radius: 2%;
+    width: 100%;
+}
+#dog .widget .data{
+    font-size: 2em;
+    font-family: 'Shippori Antique B1', sans-serif;
+}
+#dog .data .unit{
+    font-size: 1rem;
+    font-family: 'Shippori Antique B1', sans-serif;
+}
+#dog .widget .label{
+    text-transform: uppercase;
+    font-size: 1.1em; 
+    font-family: 'Shippori Antique B1', sans-serif;
+}
+
+/* Some widgets have different colours. */
+#dog .creators .widget{ 
+    color: #fff;
+    background:rgba(153, 218, 255, 0.507);
+}
+
+a:link {
+    color: rgba(255, 83, 135, 0.336);
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgba(153, 218, 255, 0.507);
+  }
+  
+  a:hover {
+    color: rgba(255, 83, 135, 0.904);
+  }
+  
+  a:active {
+    color: rgba(153, 218, 255, 0.925);
+  }
+
+#credits{
+    margin: 5rem;
+    margin-bottom: 2rem;
+    font-size: 14.8px;
+    color: rgba(0, 0, 0, 0.425);
+   
+}
